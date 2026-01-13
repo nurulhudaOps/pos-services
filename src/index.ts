@@ -1,14 +1,12 @@
 import { Hono } from 'hono'
 
+// routing
+import productRoutes from './routes/product.route.js'
+
 const app = new Hono()
 
-const welcomeStrings = [
-  'Hello Hono!',
-  'To learn more about Hono on Vercel, visit https://vercel.com/docs/frameworks/backend/hono'
-]
+app.route('/', productRoutes);
 
-app.get('/', (c) => {
-  return c.text(welcomeStrings.join('\n\n'))
-})
+app.get('/', (c) => { return c.text('POS Services API') })
 
 export default app
